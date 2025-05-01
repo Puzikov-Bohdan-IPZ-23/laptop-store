@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ laptop.brand }} {{ laptop.model }}</title>
+</head>
+<body>
+    <h1>{{ laptop.brand }} {{ laptop.model }}</h1>
+    <ul>
+        <li>Процесор: {{ laptop.processor }}</li>
+        <li>RAM: {{ laptop.ram_gb }} GB</li>
+        <li>SSD: {{ laptop.storage_gb }} GB</li>
+        <li>Ціна: {{ laptop.price }} грн</li>
+        <li>В наявності: {{ laptop.stock }}</li>
+    </ul>
+
+    <!-- Кнопка додавання до кошика -->
+    <p>
+        <a href="{% url 'cart_add' laptop.pk %}">🛒 Додати до кошика</a>
+    </p>
+
+    <a href="{% url 'laptop_list' %}">← Назад до списку</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кошик</title>
+</head>
+<body>
+    <h1>Ваш кошик</h1>
+    {% if cart_items %}
+        <ul>
+        {% for item in cart_items %}
+            <li>
+                {{ item.brand }} {{ item.model }} - {{ item.quantity }} шт. × {{ item.price }} грн =
+                {{ item.total }} грн
+                <a href="{% url 'cart_remove' item.pk %}">[Видалити]</a>
+            </li>
+        {% endfor %}
+        </ul>
+        <p><strong>Загальна сума: {{ total_price }} грн</strong></p>
+        <button>Оформити замовлення</button>
+    {% else %}
+        <p>Кошик порожній</p>
+    {% endif %}
+    <a href="{% url 'laptop_list' %}">← Назад до каталогу</a>
+</body>
+</html>

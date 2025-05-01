@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список ноутбуків</title>
+</head>
+<body>
+    <h1>Ноутбуки</h1>
+    <ul>
+        {% for laptop in laptops %}
+            <li>
+                <a href="{% url 'laptop_detail' laptop.pk %}">
+                    {{ laptop.brand }} {{ laptop.model }} - {{ laptop.price }} грн
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
